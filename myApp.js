@@ -8,6 +8,12 @@ mongoose.connect(myMongoSecret, {
 });
 
 let Person;
+const personSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  age: { type: Number },
+  favoriteFoods: { type: [String] },
+});
+Person = mongoose.model("Person", personSchema);
 
 const createAndSavePerson = (done) => {
   done(null /*, data*/);
